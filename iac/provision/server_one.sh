@@ -9,7 +9,6 @@ curl -s https://packagecloud.io/install/repositories/pagerduty/rundeck/script.de
 sudo apt-get update
 sudo apt-get install -y rundeck rundeck-cli
 
-sed -i s/admin:admin/devops:4linux/g /etc/rundeck/realm.properties
 sed -i s/localhost/172.27.11.10/g /etc/rundeck/framework.properties
 sed -i s/localhost/172.27.11.10/g /etc/rundeck/rundeck-config.properties
 
