@@ -10,7 +10,7 @@ Vagrant.configure('2') do |config|
     config.vm.define "#{name}" do |k|
       k.vm.box = "#{conf['box']}"
       k.vm.hostname = "#{name}.zer0.com"
-      k.vm.network 'private_network', ip: "172.27.11.#{conf['ip']}"
+      k.vm.network 'private_network', ip: "172.16.10.#{conf['ip']}"
       k.vm.provider 'virtualbox' do |vb|
         vb.memory = conf['memory']
         vb.cpus = conf['cpus']
@@ -20,8 +20,10 @@ Vagrant.configure('2') do |config|
         lv.cpus = conf['cpus']
         lv.cputopology :sockets => 1, :cores => conf['cpus'], :threads => '1'
       end
-      k.vm.provision 'shell', path: "provision/#{conf['provision']}", args: "#{conf['ip']}"  
-   end
+      #k.vm.provision 'ansible' do |ansible|
+      #end
+     #k.vm.provision 'shell', path: "provision/#{conf['provision']}", args: "#{conf['ip']}"   
+    end
   end
   
 end
