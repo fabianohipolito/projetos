@@ -1,0 +1,42 @@
+---
+- hosts: log
+  become: yes
+  tasks:
+  - name: Garantindo pacotes
+    package:
+      name: ['apt-transport-https', 'openjdk-11-jre-headless', 'uuid-runtime', 'pwgen', 'gnupg']        
+      state: present
+
+  - name: Garantindo a varial do JAVA-HOME
+    lineinfile:
+       path: /etc/environment  
+       line: JAVA_HOME="/usr/lib/jvm/java-1.11.0-openjdk-amd64/bin/"
+
+  - name: Garantindo a chave do mongoDB
+    apt_key:
+       keyserver: hkp://keyserver.ubuntu.com:80       
+       id: 9DA31620334BD75D9DCB49F368818C72E52529D4
+       
+  - name: Garantindo repositorio do mongodb
+    apt_repository:
+       repo: deb https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/4.0 multiverse"
+       state: present
+
+  - name: Atualizando repositorio
+    apt:
+      update_cache: yes
+
+  - name: Garantindo a Instalação do MongoDB
+    package:
+      name: ['mongodb-org']
+      state: present
+
+  - name: Garantindo a Inicialização do MongoDB
+    service:
+      name: mongod
+      enable: yes
+
+  - name: Garantindo a Reinicialização do MongoDB
+    service:
+      name: mongod
+      state: restarted
