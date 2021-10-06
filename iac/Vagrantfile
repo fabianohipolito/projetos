@@ -21,9 +21,7 @@ Vagrant.configure('2') do |config|
         lv.cpus = conf['cpus']
         lv.cputopology :sockets => 1, :cores => conf['cpus'], :threads => '1'
       end
-      #k.vm.provision 'ansible' do |ansible|
-      #end
-     #k.vm.provision 'shell', path: "provision/#{conf['provision']}", args: "#{conf['ip']}"   
+     k.vm.provision 'shell', path: "provision/#{conf['provision']}", args: "#{conf['ip']}"   
     end
   end
   
