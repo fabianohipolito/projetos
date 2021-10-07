@@ -1,5 +1,4 @@
----
-- name: 'Deploy da Iac'
-  hosts: server2
-  roles:
-     - graylog
+- hosts: log
+  become: yes
+  roles:         
+  - roles/graylog
