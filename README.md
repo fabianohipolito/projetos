@@ -1,7 +1,8 @@
 ## Devops
 
 O objetivo deste repositorio é criação de uma infraestrutura com praticas Devops.
-|--------------------------------------------------------------------------|
+
+
 | Máquina             | Endereço      | Papéis                             |
 |---------------------|---------------|------------------------------------|
 | server1.zer0.com    | 172.16.10.10  |                                    |
