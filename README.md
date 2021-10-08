@@ -5,9 +5,9 @@ O objetivo deste repositorio é criação de uma infraestrutura com praticas Dev
 
 | Máquina             | Endereço      | Papéis                             |
 |---------------------|---------------|------------------------------------|
-| server1.zer0.com    | 172.16.10.10  |                                    |
+| server1.zer0.com    | 172.16.10.10  | Em desenvolvimento                 |
 | graylog.zer0.com    | 172.16.10.20  | Monitorar os logs da infraestrutura|
-|-------------------  |---------------|------------------------------------|
+|                     |               |                                    |
 
 ## Pré-requisitos
 
@@ -19,15 +19,17 @@ Acessar o diretorio iac e execute
 ```bash
 vagrant up 
 ```
-## Acessar o servidor graylog
+## Para acessar o servidor graylog
 ```bash
 vagrant ssh log
 ```
 ## Acessando o servidor graylog via navegador
+```
 http://172.16.10.20:9000
-----------------------------------
+```
+
 ```bash
 Login: admin
 Senha: admin
 ```
-----------------------------------
+
