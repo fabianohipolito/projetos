@@ -9,5 +9,7 @@ Insalar o [Vagrant](https://www.vagrantup.com/) e o [VirtualBox](https://www.vir
 Instalação
 ----------
 Acessar o diretorio iac e execute
-
+```bash
 vagrant up 
+```
+
