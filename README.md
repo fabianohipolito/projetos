@@ -23,7 +23,7 @@ Acessar a VM
 ```bash
 vagrant ssh log
 ```
-Provisionando graylog
+## Provisionar o  graylog
 Acessar pasta iac e executar o comando
 
 ```bash
@@ -38,7 +38,6 @@ http://172.16.10.10:9000'
 
 ```bash
 |Login:|admin|
---------------
 |Senha:|admin|
 ```
 
