@@ -1,2 +1,4 @@
+ansible_python_interpreter=python3
+
 [log]
-172.16.10.20
+localhost

@@ -5,8 +5,8 @@ O objetivo deste repositorio é criação de uma infraestrutura com praticas Dev
 
 | Máquina             | Endereço      | Papéis                               |
 |---------------------|---------------|--------------------------------------|
-| server1.zer0.com    | 172.16.10.10  | Em desenvolvimento                   |
-| log.zer0.com        | 172.16.10.20  | Centralizar os logs da infraestrutura|
+| log.zer0.com        | 172.16.10.10  | Centralizar os logs da infraesrutura |
+|                     |               |                                      |
 |                     |               |                                      |
 
 ## Pré-requisitos
@@ -15,11 +15,11 @@ Instalar o [Vagrant](https://www.vagrantup.com/) e o [VirtualBox](https://www.vi
 
 Instalação
 ----------
-Acessar o diretorio iac e executar o camando
+Acessar o diretorio clonado  e executar o camando
 ```bash
- 
+ vagrant up
 ```
-## Para acessar o servidor graylog
+
 ```bash
 
 ```
