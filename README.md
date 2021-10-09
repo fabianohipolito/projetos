@@ -3,11 +3,11 @@
 O objetivo deste repositorio é criação de uma infraestrutura com praticas Devops.
 
 
-| Máquina             | Endereço      | Papéis                             |
-|---------------------|---------------|------------------------------------|
-| server1.zer0.com    | 172.16.10.10  | Em desenvolvimento                 |
-| graylog.zer0.com    | 172.16.10.20  | Monitorar os logs da infraestrutura|
-|                     |               |                                    |
+| Máquina             | Endereço      | Papéis                               |
+|---------------------|---------------|--------------------------------------|
+| server1.zer0.com    | 172.16.10.10  | Em desenvolvimento                   |
+| log.zer0.com        | 172.16.10.20  | Centralizar os logs da infraestrutura|
+|                     |               |                                      |
 
 ## Pré-requisitos
 
@@ -15,7 +15,7 @@ Instalar o [Vagrant](https://www.vagrantup.com/) e o [VirtualBox](https://www.vi
 
 Instalação
 ----------
-Acessar o diretorio iac e execute
+Acessar o diretorio iac e executar o camando
 ```bash
 vagrant up 
 ```
