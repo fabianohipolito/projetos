@@ -19,10 +19,14 @@ Vagrant.configure('2') do |config|
         lv.cpus = conf['cpus']
         lv.cputopology :sockets => 1, :cores => conf['cpus'], :threads => '1'
       end
+      f.vm.provision "file", source: "iac", destination: "/home/vagrant/"
     end
   end
+   
+  #config.vm.provision "file", source: "iac", destination: "/home/vagrant/iac"
   config.vm.provision "shell", inline: <<-SHELL
        apt-get update
        apt-get install -y git ansible
    SHELL
+  #config.vm.provision "file", source: "iac", destination: "/home/vagrant/iac"
 end
