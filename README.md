@@ -3,11 +3,11 @@
 O objetivo deste repositorio é criação de uma infraestrutura com praticas Devops.
 
 
-| Máquina             | Endereço      | Papéis                               |
-|---------------------|---------------|--------------------------------------|
-| log.zer0.com        | 172.16.10.10  | Centralizar os logs da infraesrutura |
-|                     |               |                                      |
-|                     |               |                                      |
+| Máquina             | Endereço      | Papéis                                |
+|---------------------|---------------|---------------------------------------|
+| log.zer0.com        | 172.16.10.10  | Centralizar os logs da infraestrutura |
+|                     |               |                                       |
+|                     |               |                                       |
 
 ## Pré-requisitos
 
