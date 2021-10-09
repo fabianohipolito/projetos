@@ -11,7 +11,7 @@ O objetivo deste repositorio é criação de uma infraestrutura com praticas Dev
 
 ## Pré-requisitos
 
-Insalar o [Vagrant](https://www.vagrantup.com/) e o [VirtualBox](https://www.virtualbox.org/).
+Instalar o [Vagrant](https://www.vagrantup.com/) e o [VirtualBox](https://www.virtualbox.org/).
 
 Instalação
 ----------
