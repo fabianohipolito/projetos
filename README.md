@@ -17,11 +17,11 @@ Instalação
 ----------
 Acessar o diretorio iac e executar o camando
 ```bash
-vagrant up 
+ 
 ```
 ## Para acessar o servidor graylog
 ```bash
-vagrant ssh log
+
 ```
 ## Acessando o servidor graylog via navegador
 ```
