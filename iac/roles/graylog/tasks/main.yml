@@ -1,0 +1,127 @@
+---
+  - name: Garantindo pacotes
+    package:
+      name: ['apt-transport-https', 'openjdk-11-jre-headless', 'uuid-runtime', 'pwgen', 'gnupg']        
+      state: present
+
+  - name: Garantindo a varial do JAVA-HOME
+    lineinfile:
+       path: /etc/environment  
+       line: JAVA_HOME="/usr/lib/jvm/java-1.11.0-openjdk-amd64/bin/"
+
+  - name: Garantindo a chave do mongoDB
+    apt_key:
+       keyserver: hkp://keyserver.ubuntu.com:80       
+       id: 9DA31620334BD75D9DCB49F368818C72E52529D4
+       
+  - name: Garantindo repositorio do mongodb
+    apt_repository:
+       repo: "deb https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/4.0 multiverse"
+       state: present
+
+  - name: Atualizando repositorio
+    apt:
+      update_cache: yes
+
+  - name: Garantindo a Instalação do MongoDB
+    package:
+      name: ['mongodb-org']
+      state: present
+
+  - name: Garantindo a Inicialização do MongoDB
+    service:
+      name: mongod
+      enabled: yes
+
+  - name: Garantindo a Reinicialização do MongoDB
+    service:
+      name: mongod
+      state: restarted
+
+  - name: Garantindo a chave do elastisearch
+    get_url:
+      url: https://artifacts.elastic.co/GPG-KEY-elasticsearch
+      dest: /home/vagrant/iac
+
+  - name: Adicionando a chave GPG-KEY-elasticsearch
+    command: apt-key add GPG-KEY-elasticsearch
+
+  - name: Garantindo repositorio do elasticsearch
+    apt_repository:
+       repo: "deb https://artifacts.elastic.co/packages/oss-6.x/apt stable main"
+       state: present
+
+  - name: Atualizando repositorio
+    apt:
+      update_cache: yes
+
+  - name: Garantindo a Instalação do elasticsearch
+    package:
+      name: ['elasticsearch-oss']
+      state: present
+
+  - name: Garantindo a configuração do elasticsearch.yml
+    template:
+      src: elasticsearch.yml
+      dest: /etc/elasticsearch/
+  
+  - name: Garantindo a configuração do jvm.options
+    template:
+      src: jvm.options
+      dest: /etc/elasticsearch/
+
+  - name: Garantindo a Inicialização do elasticsearch
+    service:
+      name: elasticsearch
+      enabled: yes
+
+  - name: Garantindo a Reinicialização do elasticsearch
+    service:
+      name: elasticsearch
+      state: restarted
+
+  - name: Garantindo  graylog
+    get_url: 
+       url: https://packages.graylog2.org/repo/packages/graylog-3.1-repository_latest.deb
+       dest: /home/vagrant/iac
+
+  - name: Garantindo a repositorio do graylog
+    command: dpkg -i graylog-3.1-repository_latest.deb
+
+  - name: Atualizando repositorio
+    apt:
+      update_cache: yes
+
+
+  - name: Garantindo a Instalação do graylog-server
+    package:
+      name: ['graylog-server']
+      state: present
+
+  - name: Garantindo a Inicialização do graylog
+    service:
+      name: graylog-server
+      enabled: yes
+
+  - name: Garantindo a reinicialiação do graylog
+    service:
+      name: graylog-server
+      state: restarted
+
+  - name: Garantindo a configuração do jvm.options
+    template:
+      src: server.conf
+      dest: /etc/graylog/server/
+
+      
+  - name: Garantindo a reinicialiação do graylog
+    service:
+      name: graylog-server
+      state: restarted
+
+      
+  - name: Garantindo a reinicialiação do elasticsearch
+    service:
+      name: elasticsearch
+      state: restarted
+
