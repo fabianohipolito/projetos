@@ -1,4 +1,0 @@
-- hosts: log
-  become: yes
-  roles:         
-  - roles/rsyslog

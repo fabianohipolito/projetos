@@ -19,13 +19,21 @@ Acessar o diretorio clonado  e executar o camando
 ```bash
  vagrant up
 ```
+Acessar a VM
+```bash
+vagrant ssh log
+```
+Provisionando graylog
+Acessar pasta iac e executar o comando
 
 ```bash
+ansible-playbook -i inventory plaook.yml`
 
-```
+
+
 ## Acessando o servidor graylog via navegador
 ```
-http://172.16.10.20:9000
+http://172.16.10.10:9000
 ```
 
 ```bash

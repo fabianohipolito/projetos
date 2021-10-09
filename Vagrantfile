@@ -1,6 +1,6 @@
 vms = {
-  'server1' => {'memory' => '2048', 'cpus' => 2, 'ip' => '10', 'box' => 'debian/buster64'}, 
-  'log' => {'memory' => '2048', 'cpus' => 2, 'ip' => '20', 'box' => 'debian/buster64' },
+  #'server1' => {'memory' => '2048', 'cpus' => 2, 'ip' => '10', 'box' => 'debian/buster64'}, 
+  'log' => {'memory' => '2048', 'cpus' => 2, 'ip' => '10', 'box' => 'debian/buster64' },
 }
 
 Vagrant.configure('2') do |config|
