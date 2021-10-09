@@ -27,17 +27,18 @@ Provisionando graylog
 Acessar pasta iac e executar o comando
 
 ```bash
-ansible-playbook -i inventory plaook.yml`
+ansible-playbook -i inventory plabook.yml
 ```
 
 
 ## Acessando o servidor graylog via navegador
-
-'http://172.16.10.10:9000'
-
+```bash
+http://172.16.10.10:9000'
+```
 
 ```bash
-Login: admin
-Senha: admin
+|Login:|admin|
+--------------
+|Senha:|admin|
 ```
 
