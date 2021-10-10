@@ -33,13 +33,11 @@ ansible-playbook -i inventory plabook.yml
 
 ## Acessando o servidor graylog via navegador
 ```bash
-http://172.16.10.10:9000'
+http://172.16.10.10:9000
 ```
 
 ```bash
-|------|-----|
-|Login:|admin|
-|Senha:|admin|
-|------------|
+Login:admin
+Senha:admin
 ```
 
