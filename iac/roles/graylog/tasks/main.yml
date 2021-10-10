@@ -125,3 +125,13 @@
       name: elasticsearch
       state: restarted
 
+  - name: configurando o Rsyslog
+    lineinfile:
+      path: /etc/rsyslog.conf
+      line: '*.* @172.16.10.20:1514;RSYSLOG_SyslogProtocol23Format'
+
+  - name: Garantido a reinicialização do rsyslog
+    service:
+      name: rsyslog
+      state: restarted
+
