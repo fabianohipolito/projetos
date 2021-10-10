@@ -37,7 +37,9 @@ http://172.16.10.10:9000'
 ```
 
 ```bash
-|Login:admin|
-|Senha:admin|
+|------|-----|
+|Login:|admin|
+|Senha:|admin|
+|------------|
 ```
 
