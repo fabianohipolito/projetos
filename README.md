@@ -29,8 +29,6 @@ Acessar pasta iac e executar o comando
 ```bash
 ansible-playbook -i inventory plabook.yml
 ```
-
-
 ## Acessando o servidor graylog via navegador
 ```bash
 http://172.16.10.10:9000
