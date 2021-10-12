@@ -21,7 +21,9 @@ Acessar o diretorio clonado  e executar o camando
 ```
 Acessar a VM
 ```bash
+
 vagrant ssh log
+
 ```
 ## Provisionar o  graylog
 Acessar pasta iac e executar o comando
