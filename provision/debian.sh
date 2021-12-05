@@ -1,7 +1,7 @@
 #!/bin/bash
 
 apt update -y
-apt install -y vim ansible openjdk-11-jdk gnupg2 curl git sqlite3
+apt install -y vim ansible openjdk-11-jdk gnupg2 curl git sqlite3 docker.io
 
 # Jenkins
 wget -q -O - 'https://pkg.jenkins.io/debian-stable/jenkins.io.key' | apt-key add -
@@ -15,7 +15,7 @@ apt-get update
 apt-get install -y jenkins rundeck rundeck-cli
 
 # Rundeck
-sed -i s/admin:admin/devops:4linux/g /etc/rundeck/realm.properties
+sed -i s/admin:admin/devops:zero/g /etc/rundeck/realm.properties
 sed -i s/localhost/172.16.11.10/g /etc/rundeck/framework.properties
 sed -i s/localhost/172.16.11.10/g /etc/rundeck/rundeck-config.properties
 

@@ -1,8 +1,8 @@
 vms = {
    
 'server1' => {'memory' => '2048', 'cpus' => 2, 'ip' => '10', 'box' => 'debian/buster64', 'provision' => 'debian.sh'},
-'server2' => {'memory' => '2048', 'cpus' => 2, 'ip' => '20', 'box' => 'centos/8', 'provision' => 'centos.sh' }, 
-'server3' => {'memory' => '2048', 'cpus' => 2, 'ip' => '30', 'box' => 'ubuntu/xenial64', 'provision' => 'ubuntu.sh'},
+#'server2' => {'memory' => '2048', 'cpus' => 2, 'ip' => '20', 'box' => 'centos/8', 'provision' => 'centos.sh' }, 
+#'server3' => {'memory' => '2048', 'cpus' => 2, 'ip' => '30', 'box' => 'ubuntu/xenial64', 'provision' => 'ubuntu.sh'},
 }
 
 Vagrant.configure('2') do |config|
@@ -20,7 +20,8 @@ Vagrant.configure('2') do |config|
         lv.cpus = conf['cpus']
         lv.cputopology :sockets => 1, :cores => conf['cpus'], :threads => '1'
       end
-      vms.vm.provision 'shell', path: "provision/#{conf['provision']}", args: "#{conf['ip']}"
+     
     end
   end
-end
+      vms.vm.provision 'shell', path: "provision/#{conf['provision']}", args: "#{conf['ip']}"
+  end
