@@ -19,9 +19,4 @@ O objetivo deste repositorio é criar e gerenciar servidores utilizando ferament
 - Graylog
 
 
-  Máquina             |      S.O      | Ferramentas Devops                    |
-|---------------------|---------------|---------------------------------------|
-| server'             | Debian        |Git, ansible,rundeck, jenkins          |
-|                     |               |                                       |
-|                     |               |                                       |
 
