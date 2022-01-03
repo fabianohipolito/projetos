@@ -1,7 +1,7 @@
 #!/bin/bash
 
 apt update -y
-apt install -y vim ansible openjdk-11-jdk gnupg2 curl git sqlite3 docker.io
+apt install -y vim ansible openjdk-11-jdk gnupg2 curl git sqlite3 
 
 # Jenkins
 wget -q -O - 'https://pkg.jenkins.io/debian-stable/jenkins.io.key' | apt-key add -
