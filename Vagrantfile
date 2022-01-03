@@ -2,10 +2,11 @@
 # vi: set ft=ruby :
 
 vms = {
-  'automation' => {'memory' => '2048', 'cpus' => 2, 'ip' => '10', 'box' => 'debian/buster64', 'provision' => 'debian.sh'},
+  'server1' => {'memory' => '2048', 'cpus' => 2, 'ip' => '10', 'box' => 'debian/buster64', 'provision' => 'debian.sh'},
   'server2' => {'memory' => '1024', 'cpus' => 1, 'ip' => '20', 'box' => 'centos/8','provision' => 'centos.sh'},
-  'server3' => {'memory' => '1024', 'cpus' => 1, 'ip' => '30', 'box' => 'debian/buster64', 'provision' => 'debian2.sh'},
-  'server4' => {'memory' => '1024', 'cpus' => 1, 'ip' => '30', 'box' => 'centos/8', 'provision' => 'centos.sh'},
+  'server3' => {'memory' => '1024', 'cpus' => 1, 'ip' => '30', 'box' => 'ubuntu/trusty64', 'provision' => 'ubuntu.sh'},
+  'server4' => {'memory' => '1024', 'cpus' => 1, 'ip' => '30', 'box' => 'debian/buster64', 'provision' => 'centos.sh'},
+  'server5' => {'memory' => '1024', 'cpus' => 1, 'ip' => '30', 'box' => 'centos/8', 'provision' => 'centos.sh'},
  }
 
 Vagrant.configure('2') do |config|
@@ -25,7 +26,7 @@ Vagrant.configure('2') do |config|
       k.vm.provider 'libvirt' do |lv|
         lv.memory = conf['memory']
         lv.cpus = conf['cpus']
-        lv.cputopology :sockets => 1, :cores => conf['cpus'], :threads => '1'
+        
       end
       k.vm.provision 'shell', path: "provision/#{conf['provision']}", args: "#{conf['ip']}"
     end

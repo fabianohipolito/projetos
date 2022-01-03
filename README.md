@@ -18,5 +18,10 @@ O objetivo deste repositorio é criar e gerenciar servidores utilizando ferament
 - Zabbix
 - Graylog
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 4e72a8ed9c7d1eca6a17436734d23c298ca919c8
 
 
