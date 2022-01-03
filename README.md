@@ -1,17 +1,22 @@
 ## Devops
 
-O objetivo deste repositorio é criação de uma infraestrutura com praticas Devops.
+O objetivo deste repositorio é criar e gerenciar servidores utilizando feramentas Devops e de monitoramento.
 
+## Ferramentas Devops
 
-| Máquina             | Endereço      |                                       |
-|---------------------|---------------|---------------------------------------|
-|                     |               |                                       |
-|                     |               |                                       |
-|                     |               |                                       |
+- Vagrant
+- Docker
+- Ansible
+- Rundeck
+- Jenkins
+- Git
 
-## Pré-requisitos
+## Ferramentas de monitoramento DevOps
 
-Instalar o [Vagrant](https://www.vagrantup.com/) e o [VirtualBox](https://www.virtualbox.org/).
+- Prometheus
+- Grafana
+- Zabbix
+- Graylog
 
 
 
