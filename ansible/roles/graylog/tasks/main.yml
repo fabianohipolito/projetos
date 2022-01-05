@@ -41,7 +41,7 @@
   - name: Garantindo a chave do elastisearch
     get_url:
       url: https://artifacts.elastic.co/GPG-KEY-elasticsearch
-      dest: /home/vagrant/iac
+      dest: /home/ansible
 
   - name: Adicionando a chave GPG-KEY-elasticsearch
     command: apt-key add GPG-KEY-elasticsearch
@@ -83,7 +83,7 @@
   - name: Garantindo  graylog
     get_url: 
        url: https://packages.graylog2.org/repo/packages/graylog-3.1-repository_latest.deb
-       dest: /home/vagrant/iac
+       dest: /home/ansible
 
   - name: Garantindo a repositorio do graylog
     command: dpkg -i graylog-3.1-repository_latest.deb
