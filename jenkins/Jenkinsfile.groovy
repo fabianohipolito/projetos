@@ -4,7 +4,7 @@ node {
               sh 'ls -l'
 	  }
 	  stage('Test') {
-            sh 'ip a'
+            sh 'echo Sucesso!'
  	  }
           stage('Save') {
           } 
