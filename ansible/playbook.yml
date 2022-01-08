@@ -1,5 +1,6 @@
-- hosts: server4
+- hosts: localhost
   become: yes
   roles:         
-  - roles/graylog
+   - graylog
+   - zabbix
     
