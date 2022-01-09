@@ -1,9 +1,4 @@
 ---
-  - name: Garantindo pacotes
-    package:
-      name: ['OpenIPMI', 'libssh2', 'fping', 'libcurl', 'libxml2', 'net-snmp']     
-      state: present
-
   - name: Garantindo o download do Zabbix
     get_url:
       url: https://repo.zabbix.com/zabbix/5.2/ubuntu/pool/main/z/zabbix-release/zabbix-release_5.2-1+ubuntu18.04_all.deb
@@ -13,4 +8,26 @@
     dpkg_selections:
       name: zabbix
       selection: hold
+
+  - name: Garantindo a atualização do repositorio
+    apt:
+      update_cache: yes
+
+  - name: Garantindo a instalação dos pacotes zabbix
+    package:
+      name: ['zabbix-server-mysql', 'zabbix-frontend-php', 'zabbix-apache-conf', 'zabbix-agent']
+      state: present
+
+  - name: Garantindo a instalação do mysql
+    apt:
+      name: mysql-server
+      state: absent
+
+  - name: Configurando o banco de dados
+  - mysql_user:
+     name: root
+     passoword: 12345
+     priv: '*.*:ALL'
+     state: present
+
 
