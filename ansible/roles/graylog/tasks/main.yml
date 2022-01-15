@@ -39,12 +39,9 @@
       state: restarted
 
   - name: Garantindo a chave do elastisearch
-    get_url:
+    apt_key:
       url: https://artifacts.elastic.co/GPG-KEY-elasticsearch
-      dest: /home/ansible
-
-  - name: Adicionando a chave GPG-KEY-elasticsearch
-    command: apt-key add GPG-KEY-elasticsearch
+      state: present
 
   - name: Garantindo repositorio do elasticsearch
     apt_repository:
@@ -81,17 +78,12 @@
       state: restarted
 
   - name: Garantindo  graylog
-    get_url: 
-       url: https://packages.graylog2.org/repo/packages/graylog-3.1-repository_latest.deb
-       dest: /home/ansible
-
-  - name: Garantindo a repositorio do graylog
-    command: dpkg -i graylog-3.1-repository_latest.deb
-
+    apt: 
+       deb: https://packages.graylog2.org/repo/packages/graylog-3.1-repository_latest.deb
+       
   - name: Atualizando repositorio
     apt:
       update_cache: yes
-
 
   - name: Garantindo a Instalação do graylog-server
     package:
@@ -112,13 +104,11 @@
     template:
       src: server.conf
       dest: /etc/graylog/server/
-
       
   - name: Garantindo a reinicialiação do graylog
     service:
       name: graylog-server
       state: restarted
-
       
   - name: Garantindo a reinicialiação do elasticsearch
     service:

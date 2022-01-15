@@ -1,33 +1,111 @@
 ---
-  - name: Garantindo o download do Zabbix
-    get_url:
-      url: https://repo.zabbix.com/zabbix/5.2/ubuntu/pool/main/z/zabbix-release/zabbix-release_5.2-1+ubuntu18.04_all.deb
-      dest: /home/ansible
- 
-  - name: Garantindo a instalação do Zabbix
-    dpkg_selections:
-      name: zabbix
-      selection: hold
+  - name: Garantindo pacotes
+    package:
+      name: ['vim', 'git', 'python3-pip', 'python-mysqldb']
 
-  - name: Garantindo a atualização do repositorio
+
+  - name: Garantindo a instalacao  do Zabbix
+    apt:
+      deb: https://repo.zabbix.com/zabbix/5.2/ubuntu/pool/main/z/zabbix-release/zabbix-release_5.2-1+ubuntu18.04_all.deb
+      
+  - name: Atualizando o Repositorio
     apt:
       update_cache: yes
 
-  - name: Garantindo a instalação dos pacotes zabbix
+  - name: Garantindo a instalacao dos pacotes zabbix
     package:
-      name: ['zabbix-server-mysql', 'zabbix-frontend-php', 'zabbix-apache-conf', 'zabbix-agent']
+      name: ['zabbix-server-mysql', 'zabbix-frontend-php', 'zabbix-agent', 'zabbix-apache-conf']
       state: present
 
-  - name: Garantindo a instalação do mysql
+  - name: Garantindo a instalacao do mysql
     apt:
       name: mysql-server
       state: absent
+  
+  - name: Garantindo a criacao do bd
+    mysql_db:
+      login_unix_socket: /var/run/mysqld/mysqld.sock
+      name: zabbix
+      encoding: utf8
+      collation: utf8_bin
+      login_host: localhost
+      login_user: root
+      login_password: root
 
-  - name: Configurando o banco de dados
-  - mysql_user:
-     name: root
-     passoword: 12345
-     priv: '*.*:ALL'
-     state: present
+  - name: Garantindo o usuario  do bd
+    mysql_user:
+      login_unix_socket: /var/run/mysqld/mysqld.sock
+      login_host: localhost
+      login_user: root
+      login_password: root
+      name: zabbix
+      password: 12345
+      priv: '*.*:ALL'
+      state: present
+
+  - name: Descompactando o arquivo create.sql
+    command: gunzip /usr/share/doc/zabbix-server-mysql/create.sql.gz
+
+  - name: Importando o creat.sql
+    mysql_db:
+      state: import
+      login_unix_socket: /var/run/mysqld/mysqld.sock
+      login_host: localhost
+      login_user: root
+      login_password: root
+      name: zabbix
+      encoding: utf8
+      collation: utf8_bin
+      target: /usr/share/doc/zabbix-server-mysql/create.sql
+
+
+  
+
+  - name: Garantindo a configuracao do zabbix_server.conf
+    template:
+       src: zabbix_server.conf
+       dest: /etc/zabbix/
+
+  - name: Garantindo a configuracao do php.ini
+    template:
+       src: php.ini
+       dest: etc/php/7.2/apache2/
+ 
+  - name: Garantindo a reinicializacao do zabbix-server
+    service:
+       name: zabbix-server
+       state: restarted
+
+
+  - name: Garantindo a reinicializacao do zabbix-server
+    service:
+       name: zabbix-agent
+       state: restarted
+  
+
+  - name: Garantindo a reinicializacao do zabbix-server
+    service:
+       name: apache2
+       state: restarted
+
+
+  
+  - name: Garantindo a inicializacao do zabbix-server
+    service:
+       name: zabbix-server
+       enabled: yes
+
+
+  
+  - name: Garantindo a inicializacao do zabbix-server
+    service:
+       name: zabbix-agent
+       enabled: yes
+
+
+  - name: Garantindo a inicializacao do zabbix-server
+    service:
+       name: apache2
+       enabled: yes
 
 

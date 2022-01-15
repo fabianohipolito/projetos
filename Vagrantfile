@@ -6,7 +6,7 @@ vms = {
   'server2' => {'memory' => '1024', 'cpus' => 1, 'ip' => '20', 'box' => 'centos/8','provision' => 'centos.sh'},
   'server3' => {'memory' => '1024', 'cpus' => 1, 'ip' => '30', 'box' => 'debian/buster64', 'provision' => 'debian2.sh'},
   'server4' => {'memory' => '1024', 'cpus' => 1, 'ip' => '40', 'box' => 'centos/8', 'provision' => 'centos.sh'},
-  'server5' => {'memory' => '1024', 'cpus' => 1, 'ip' => '50', 'box' => 'trombik/ansible-ubuntu-18.04-amd64', 'provision' => 'ubuntu.sh'},
+  'server5' => {'memory' => '1024', 'cpus' => 1, 'ip' => '50', 'box' => 'bento/ubuntu-18.04', 'provision' => 'ubuntu.sh'},
  }
 
 Vagrant.configure('2') do |config|

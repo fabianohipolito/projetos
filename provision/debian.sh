@@ -3,6 +3,12 @@
 apt update -y
 apt install -y vim ansible openjdk-11-jdk gnupg2 curl git sqlite3 
 
+
+sudo mkdir /root/keys
+sudo ssh-keygen -m PEM -N '' -f /root/keys/ansible
+sudo ssh-keygen -m PEM -N '' -f /root/keys/jenkins
+
+
 # Jenkins
 wget -q -O - 'https://pkg.jenkins.io/debian-stable/jenkins.io.key' | apt-key add -
 echo 'deb https://pkg.jenkins.io/debian-stable binary/' > /etc/apt/sources.list.d/jenkins.list
