@@ -1,0 +1,11 @@
+---
+  - name: Adicionando o repositorio do grafana
+    template:
+      src: grafana.repo
+      dest: /etc/yum.repos.d/
+
+  - name: Instalando o Grafana.
+    yum:
+      name: grafana
+      state: present
+    
