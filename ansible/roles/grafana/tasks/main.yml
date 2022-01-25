@@ -6,6 +6,17 @@
 
   - name: Instalando o Grafana.
     yum:
-      name: grafana
-      state: present
-    
+         name: grafana
+         state: present
+
+
+  - name: Start grafana
+    service:
+         name: grafana-server
+         state: started
+
+
+  - name: Enable grafana
+    service:
+         name: grafana-server
+         enabled: yes
